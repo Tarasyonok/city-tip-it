@@ -1,12 +1,5 @@
 import os
 import sys
-
-import pygame
-import requests
-
-import os
-import sys
-
 from random import randint
 
 import requests
@@ -229,10 +222,11 @@ class MapsAPI(QMainWindow):
         self.comboBox.setCurrentIndex(0)
 
 
-    # def closeEvent(self, event):
+    def closeEvent(self, event):
         # Удаляем за собой файлы с изображениями.
-        # for img in maps.values():
-        #     os.remove(img)
+        for img in self.maps.values():
+            os.remove(img[0])
+            os.remove(img[1])
 
 
 def except_hook(cls, exception, traceback):
